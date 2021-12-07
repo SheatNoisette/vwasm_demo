@@ -1,0 +1,7 @@
+.vscode/
+*.wasm
+*.js
+*.c
+*.h
+!mylib/*.c
+!mylib/*.h

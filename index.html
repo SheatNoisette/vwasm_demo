@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>V WASM demo!</title>
+        <meta charset="UTF-8"\>
+
+        <script src="mylib.js"></script>
+        <script>
+            Module.onRuntimeInitialized = async _ => {
+                const mylib = {
+                    version: Module.cwrap('version', 'number', []),
+                    add: Module.cwrap('add', 'number', ['number', 'number']),
+                    hello: Module.cwrap('hello_world', null, []),
+                };
+
+
+                console.log("My V library version: " + mylib.version() + "!");
+                console.log("add(1,42) = " + mylib.add(1,42));
+                console.log("add(64,64) = " + mylib.add(64,64));
+                console.log("mylib wants to say hello:")
+                mylib.hello();
+            };
+        </script>
+    </head>
+    <body>
+        <p>Check out the console!</p>
+    </body>
+
+</html>
