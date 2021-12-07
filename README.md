@@ -1,6 +1,6 @@
-# V Webassembly demo
+# V WebAssembly demo
 
-Compile a V library into WebAssembly!
+Compile a simple V library into WebAssembly!
 
 Require Emscripten.
 
