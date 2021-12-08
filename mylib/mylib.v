@@ -1,8 +1,5 @@
 module mylib
 
-// Hide signal from WASM
-#define signal(x,y)
-
 [export: 'mylib_add']
 pub fn add(a int, b int) int {
 	return a + b
@@ -16,4 +13,14 @@ pub fn hello_world() {
 [export: 'mylib_version']
 pub fn version() int {
 	return 42
+}
+
+[export: 'mylib_v_hash']
+pub fn v_hash() string {
+	return @VHASH
+}
+
+[export: 'mylib_string_custom_reverse']
+pub fn string_custom_reverse(input string) string {
+	return input.reverse()
 }

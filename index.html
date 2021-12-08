@@ -10,14 +10,18 @@
                     version: Module.cwrap('version', 'number', []),
                     add: Module.cwrap('add', 'number', ['number', 'number']),
                     hello: Module.cwrap('hello_world', null, []),
+                    v_hash: Module.cwrap('v_hash', 'string', []),
+                    string_custom_reverse: Module.cwrap('string_custom_reverse', 'string', ['string']),
                 };
 
 
                 console.log("My V library version: " + mylib.version() + "!");
                 console.log("add(1,42) = " + mylib.add(1,42));
                 console.log("add(64,64) = " + mylib.add(64,64));
-                console.log("mylib wants to say hello:")
+                console.log("mylib wants to say hello:");
                 mylib.hello();
+                console.log("My V library has been built using V - hash: \'" + mylib.v_hash() + "\'");
+                console.log("Reverse this using my lib! reverse(\'Hey\') = " + mylib.string_custom_reverse("Hey"));
             };
         </script>
     </head>
