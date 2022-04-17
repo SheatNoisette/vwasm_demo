@@ -10,9 +10,10 @@ Require Emscripten or Docker
 ```
 make
 ```
-### docker
+### docker emcc
 ```
-docker run --rm -v $(pwd):/src qxip/emscripten-v:latest make
+docker build -t emcscripten-v .
+docker run --rm -v $(pwd):/src emscripten-v:latest make
 ```
 
 ## Test
