@@ -18,15 +18,18 @@ EMCC_FLAGS += -s EXPORTED_FUNCTIONS=_add,_hello_world,_version,_v_hash
 # Force set linux macro
 EMCC_FLAGS += -D__linux__
 
-# Misc
+# Misc - Enable optimizations
 EMCC_OPT = -O2
+
+# Flags to the V Compiler
+V_FLAGS = -prod -shared -gc none -d no_backtrace
 
 all: lib emscripten
 
 # Build the library using V, then inject emscripten wrapper into the C generated
 # file
 lib:
-	$(V_CC) mylib -prod -shared -o $(LIB)
+	$(V_CC) mylib $(V_FLAGS) -o $(LIB)
 	cat $(WRAPPER) >> $(LIB)
 
 # Generate a JS and a wasm file
