@@ -1,18 +1,17 @@
 # V WebAssembly demo
 
 Compile a simple V library into WebAssembly!
-
-Require Emscripten or Docker
+Require Emscripten or Docker.
 
 ## Build
-
-### emcc
+### Docker-less
+You need to install Emscriptem, make and V.
 ```
 make
 ```
 ### docker emcc
 ```
-docker build -t emcscripten-v .
+docker build -t emscripten-v .
 docker run --rm -v $(pwd):/src emscripten-v:latest make
 ```
 
